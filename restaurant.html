@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff8f0;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #7b4f1d;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #d18700;
+}
+
+/* Optional: Responsive collapse (basic) */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    background: #fff;
+    position: absolute;
+    top: 65px;
+    right: 30px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  .navbar.active .nav-links {
+    display: flex;
+  }
+}
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Georgia', serif;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092'); /* You can replace this URL */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Overlay for dark effect */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #fff8f0;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  color: #e0d7cd;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+  border: 2px solid #ffc107;
+}
+
+.primary {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.primary:hover {
+  background-color: #e0a800;
+}
+
+.secondary {
+  background-color: transparent;
+  color: #ffc107;
+}
+
+.secondary:hover {
+  background-color: #ffc107;
+  color: #000;
+}
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fffaf5;
+  color: #333;
+}
+
+.about-section {
+  padding: 60px 20px;
+  background-color: #fefefe;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #7b4f1d;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.about-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.about-box {
+  background-color: #fff6ec;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.about-box h3 {
+  color: #d18700;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.about-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+/* Menu Section with Images */
+.menu-section {
+  background-color: #fffaf5;
+  padding: 60px 20px;
+}
+
+.menu-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #7b4f1d;
+  margin-bottom: 40px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.menu-item {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.menu-item h3 {
+  font-size: 1.3rem;
+  color: #d18700;
+  margin: 15px 0 5px;
+}
+
+.menu-item p {
+  font-size: 0.95rem;
+  padding: 0 15px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.menu-item span {
+  display: block;
+  padding: 10px;
+  font-weight: bold;
+  color: #7b4f1d;
+}
+
+
+/* Reservations Section */
+.reservations-section {
+  background-color: #fff;
+  padding: 60px 20px;
+}
+
+.reservations-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #7b4f1d;
+  margin-bottom: 20px;
+}
+
+.reservations-section p {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.reservation-form {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  gap: 20px;
+}
+
+.reservation-form input,
+.reservation-form button {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.reservation-form button {
+  background-color: #d18700;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.reservation-form button:hover {
+  background-color: #b46f00;
+}
+/* Contact Section */
+.contact-section {
+  background-color: #fff6ec;
+  padding: 60px 20px;
+}
+
+.contact-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #7b4f1d;
+  margin-bottom: 40px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.contact-info {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.contact-info h3 {
+  color: #d18700;
+  margin-bottom: 15px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form h3 {
+  color: #d18700;
+  margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #d18700;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #b46f00;
+}
+/* Footer */
+.footer {
+  background-color: #7b4f1d;
+  color: #fffaf0;
+  padding: 50px 20px 20px;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fefefe;
+}
+
+.footer h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ffc107;
+}
+
+.footer-column p,
+.footer-column li {
+  margin-bottom: 8px;
+  color: #fefefe;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a {
+  color: #fffaf0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffc107;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #e0d7cd;
+  border-top: 1px solid #ffffff22;
+  padding-top: 10px;
+}
+
+
+</style>
+ <nav class="navbar">
+    <div class="logo">Bella Vista</div>
+    <ul class="nav-links">
+      <li><a href="#Home">Home</a></li>
+      <li><a href="#About">About</a></li>
+      <li><a href="#Menu">Menu</a></li>
+      <li><a href="#Reservations">Reservations</a></li>
+      <li><a href="#Contact">Contact</a></li>
+    </ul>
+  </nav>
+     <section id="Home" class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Bella Vista</h1>
+      <p>Where culinary artistry meets exceptional dining</p>
+      <div class="buttons">
+        <a href="#" class="btn primary">Reserve a Table</a>
+        <a href="#" class="btn secondary">View Menu</a>
+      </div>
+    </div>
+  </section>
+   <section id="About" class="about-section">
+    
+    <div class="container">
+      <h2>About Us</h2>
+      <p class="intro">
+        Welcome to <strong>Bella Vista</strong>, a culinary haven where Italian tradition meets modern elegance. Since opening our doors in 2010, we've dedicated ourselves to creating unforgettable dining moments.
+      </p>
+
+      <div class="about-columns">
+        <div class="about-box">
+          <h3>Our Mission</h3>
+          <p>We strive to connect people through exceptional food, heartfelt hospitality, and a cozy, elegant atmosphere.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Signature Dishes</h3>
+          <p>Try our beloved truffle mushroom risotto or our crispy wood-fired Neapolitan pizzas—made with fresh, locally-sourced ingredients.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Our Team</h3>
+          <p>Led by Chef Marco D’Amico, our team brings over 20 years of international culinary experience to your table.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Our Values</h3>
+          <p>We are committed to sustainability, supporting local farmers, and creating a welcoming space for all our guests.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Award-Winning Dining</h3>
+          <p>Recognized as Nairobi’s “Best Fine Dining Restaurant” for three consecutive years.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Visit Us</h3>
+          <p>We invite you to experience the warmth, flavor, and joy of Bella Vista. Your table is waiting.</p>
+        </div>
+      </div>
+    </div>
+ </section>
+ 
+<!-- Menu Section with Images -->
+<section id="Menu" class="menu-section">
+  <div class="container">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <!-- Item 1 -->
+      <div class="menu-item">
+        <img src="https://recipes.heart.org/-/media/AHA/Recipe/Recipe-Images/Classic-Margherita-Pizza-with-Whole-Wheat-Pizza-Crust.jpg?sc_lang=en&hash=8669621DF39E46A90612215CFACFE313" alt="Margherita Pizza">
+        <h3>Margherita Pizza</h3>
+        <p>Classic pizza with tomato, mozzarella, and fresh basil leaves.</p>
+        <span>$10</span>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="menu-item">
+        <img src="https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/truffle-risotto-with-herbed-chicken-30932bfb.jpg" alt="Truffle Risotto">
+        <h3>Truffle Risotto</h3>
+        <p>Creamy risotto with wild mushrooms and white truffle oil.</p>
+        <span>$14</span>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Seafood Pasta">
+        <h3>Seafood Pasta</h3>
+        <p>Fresh prawns, calamari, and mussels in a garlic tomato sauce.</p>
+        <span>$16</span>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="menu-item">
+        <img src="https://static01.nyt.com/images/2017/04/05/dining/05COOKING-TIRAMISU1/05COOKING-TIRAMISU1-videoSixteenByNineJumbo1600.jpg" alt="Tiramisu">
+        <h3>Tiramisu</h3>
+        <p>Italian dessert layered with mascarpone, coffee, and cocoa.</p>
+        <span>$6</span>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="menu-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHeUIB4icnTJRdDgFPSc5ZmZ4gmTsX9Xi-HQ&s" alt="Grilled Salmon">
+        <h3>Grilled Salmon</h3>
+        <p>Served with lemon butter sauce and seasonal vegetables.</p>
+        <span>$18</span>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="menu-item">
+        <img src="https://natashaskitchen.com/wp-content/uploads/2019/08/Caprese-Salad-6.jpg" alt="Caprese Salad">
+        <h3>Caprese Salad</h3>
+        <p>Tomatoes, mozzarella, and basil with balsamic glaze.</p>
+        <span>$8</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Reservations Section -->
+<section id="Reservations" class="reservations-section">
+  <div class="container">
+    <h2>Reservations</h2>
+    <p>Book your table in advance and let us prepare the perfect setting for your occasion.</p>
+    <form class="reservation-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="date" required>
+      <input type="time" required>
+      <input type="number" placeholder="Number of Guests" required min="1">
+      <button type="submit">Reserve Now</button>
+    </form>
+  </div>
+  <!-- Contact Section -->
+<section id="Contact" class="contact-section">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Visit or Reach Us</h3>
+        <p><strong>Address:</strong> 51 Westlands Road, Nairobi, Kenya</p>
+        <p><strong>Email:</strong> marketing@bellavista.com</p>
+        <p><strong>Phone:</strong> +254 722 439443</p>
+        <p><strong>Hours:</strong><br>
+           Mon–Fri: 8:00 am – 5:00 pm<br>
+           Saturday: 8:15 am – 12:45 pm<br>
+           Closed on Sundays & Public Holidays
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form">
+        <h3>Send a Message</h3>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Column 1: Logo / Name -->
+    <div class="footer-column">
+      <h3>Bella Vista</h3>
+      <p>Where culinary artistry meets exceptional dining.</p>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#contact">Contact</a>
+
+
+
+  
+</body>
+</html>
